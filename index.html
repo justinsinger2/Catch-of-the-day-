@@ -1353,7 +1353,7 @@ setInterval(tick, 1000);
     img.alt = '';
     img.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain';
     v.appendChild(img); document.body.appendChild(v);
-    requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => v.remove(), 600)));   // timer starts once it is on screen
+    requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => v.remove(), 300)));   // timer starts once it is on screen
   }).catch(() => {});                                                      // no image (or not found): do nothing
 })();
 
