@@ -1342,7 +1342,6 @@ setInterval(tick, 1000);
 /* ---------- Wednesday surprise: wednesday.png (next to index.html) flashes for 0.1 s, on Wednesdays only */
 (function wednesdayFlash() {
   if (new Date().getDay() !== 3) return;                                   // 3 = Wednesday, on the player's own clock
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;      // skip for people who turned off motion
   const img = new Image(), t0 = performance.now();
   img.src = 'Stop_snooping.png';
   img.decode().then(() => {
@@ -1353,7 +1352,7 @@ setInterval(tick, 1000);
     img.alt = '';
     img.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain';
     v.appendChild(img); document.body.appendChild(v);
-    requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => v.remove(), 300)));   // timer starts once it is on screen
+    requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => v.remove(), 200)));   // timer starts once it is on screen
   }).catch(() => {});                                                      // no image (or not found): do nothing
 })();
 
